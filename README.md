@@ -5,6 +5,7 @@ This AI project is a detection task for identifying zebrafish organs and phenoty
 
 ## How to start
 To use our zebrafish AI detection, you have to learn how to install and utilize the detectron2, please refer the [detectron2 instructions](https://detectron2.readthedocs.io/en/latest/tutorials/getting_started.html). 
+
 First install detectron2 and other dependent libraries (see [zebrafish_maskrcnn.py](https://github.com/gonggqing/zebrafish_detection/blob/ddff5e1871fb63bbb34f46db6785534ed34c017a/zebrafish_maskrcnn.py)). 
 Then put the [pre-trained model weights](https://drive.google.com/file/d/1yyREJccnKeRDJ4BOnFMt3FNddC_w4fm_/view?usp=sharing) in your specified path.
 ```python
@@ -31,6 +32,7 @@ register_coco_instances("zebrafish_train", {}, "/your/path/test.json",
 ```
 ## Expected results
 After the model inference, we can acquire a csv file which cotains the quantitative parameters of specific organs and abnormal phenotypes, these information demonstrate every detail of one specific zebrafish, and we can use them to analyze the developmental status of each zebrafish.
+
 ![results](https://user-images.githubusercontent.com/57084033/177250653-fbf07d17-8ba5-4be0-838c-360d66022691.png)
 
 ## Developer comments
