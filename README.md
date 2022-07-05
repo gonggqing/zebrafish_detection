@@ -15,6 +15,7 @@ path = 'your/specified/path'
 df.to_csv(os.path.join('.../results/', 'results.csv'))
 ```
 Run the [zebrafish_maskrcnn.py](https://github.com/gonggqing/zebrafish_detection/blob/ddff5e1871fb63bbb34f46db6785534ed34c017a/zebrafish_maskrcnn.py) file in `inference mode` locally.
+
 If you want to re-train this model locally, please download the train.json, test.json, train images and test images.(see [images_url.txt](https://github.com/gonggqing/zebrafish_detection/blob/fa6b5911c9373ff5d726fe5b4af44394f8cb81f5/images/images_url.txt)) The json file contains annotations of COCO style. After downloading the images and files, register the coco instances in your code, modify the name and path of the register.
 ```python
 # train registry
