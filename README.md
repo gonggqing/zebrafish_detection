@@ -1,12 +1,12 @@
 # Zebrafish Detection
-This AI project is a detection task for identifying zebrafish organs and phenotypes in micrographs, which is based on the Meta AI project, [Detectron2 version 4.1.](https://github.com/facebookresearch/detectron2) It mainly used Mask R-CNN for training and validating. It has 16 detected objects, including 8 specific organs and 8 specific abnormal phenotypes. 
+This AI project is a detection task for identifying zebrafish organs and phenotypes in micrographs, which is based on the Meta AI project, [Detectron2 version 0.4.1.](https://github.com/facebookresearch/detectron2) It mainly used Mask R-CNN for training and validating. It has 16 detected objects, including 8 specific organs and 8 specific abnormal phenotypes. 
 
 ![infer_](https://user-images.githubusercontent.com/57084033/177120642-c2a074d5-0c78-4a35-99f8-85f1ae02a80c.gif)
 
 ## How to start
 To use our zebrafish AI detection, you have to learn how to install and utilize the detectron2, please refer the [detectron2 instructions](https://detectron2.readthedocs.io/en/latest/tutorials/getting_started.html). 
 
-First install detectron2 and other dependent libraries (see [zebrafish_maskrcnn.py](https://github.com/gonggqing/zebrafish_detection/blob/ddff5e1871fb63bbb34f46db6785534ed34c017a/zebrafish_maskrcnn.py)). 
+Firstly, install python3.8 or higher version, detectron2 (0.4.1) and other dependent libraries (see [zebrafish_maskrcnn.py](https://github.com/gonggqing/zebrafish_detection/blob/ddff5e1871fb63bbb34f46db6785534ed34c017a/zebrafish_maskrcnn.py)). 
 Then put the [pre-trained model weights](https://drive.google.com/file/d/1yyREJccnKeRDJ4BOnFMt3FNddC_w4fm_/view?usp=sharing) in your specified path.
 ```python
 # Modify some necessary paths
@@ -19,7 +19,7 @@ path = 'your/specified/path'
 # save your results
 df.to_csv(os.path.join('.../results/', 'results.csv'))
 ```
-Run the [zebrafish_maskrcnn.py](https://github.com/gonggqing/zebrafish_detection/blob/ddff5e1871fb63bbb34f46db6785534ed34c017a/zebrafish_maskrcnn.py) file in `inference mode` locally.
+Finally, run the [zebrafish_maskrcnn.py](https://github.com/gonggqing/zebrafish_detection/blob/ddff5e1871fb63bbb34f46db6785534ed34c017a/zebrafish_maskrcnn.py) file in `inference mode` locally.
 
 We have opened our image library and annotations, if you want to re-train this model locally, please download the train.json, test.json, train images and test images.(see [images_url.txt](https://github.com/gonggqing/zebrafish_detection/blob/fa6b5911c9373ff5d726fe5b4af44394f8cb81f5/images/images_url.txt)) The json file contains annotations of COCO style. After downloading the images and files, register the coco instances in your code, modify the name and path of the register.
 ```python
