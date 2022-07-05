@@ -22,7 +22,7 @@ path = 'your/specified/path'
 # save your results
 df.to_csv(os.path.join('.../results/', 'results.csv'))
 ```
-Finally, run the [zebrafish_maskrcnn.py](https://github.com/gonggqing/zebrafish_detection/blob/ddff5e1871fb63bbb34f46db6785534ed34c017a/zebrafish_maskrcnn.py) file in `inference mode` locally.
+Finally, run the [zebrafish_maskrcnn.py](https://github.com/gonggqing/zebrafish_detection/blob/ddff5e1871fb63bbb34f46db6785534ed34c017a/zebrafish_maskrcnn.py) file in `inference mode` locally. To switch the code to inference mode, you have to add a "#" before `Train` and `Evaluate` in our code, only reserve the `Inference` section to run the code.
 
 If you want to use TensorMask to identify the objects, please refer to another python file, [zebrafish_tensormask.py](https://github.com/gonggqing/zebrafish_detection/blob/700af1363e0dcb599e681f200a53363b32b7f4c7/zebrafish_tensormask.py). Through this model you also can see the identification results in real-time, which is supported by Open CV.
 
