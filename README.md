@@ -1,4 +1,5 @@
 # Zebrafish Detection
+## Description
 This AI project is a detection task for identifying `zebrafish organs` and `phenotypes` in micrographs, which is based on the Meta AI project, [Detectron2 version 0.4.1.](https://github.com/facebookresearch/detectron2) It mainly used `Mask R-CNN` for training and validating. It has 16 detected objects, including 8 specific organs and 8 specific abnormal phenotypes. 
 
 ![infer_](https://user-images.githubusercontent.com/57084033/177120642-c2a074d5-0c78-4a35-99f8-85f1ae02a80c.gif)
@@ -24,7 +25,7 @@ Finally, run the [zebrafish_maskrcnn.py](https://github.com/gonggqing/zebrafish_
 
 If you want to use TensorMask to identify the objects, please refer to another python file, [zebrafish_tensormask.py](https://github.com/gonggqing/zebrafish_detection/blob/700af1363e0dcb599e681f200a53363b32b7f4c7/zebrafish_tensormask.py). Through this model you also can see the identification results in real-time, which is supported by Open CV.
 
-We have opened our image library and annotations, if you want to re-train this model locally, please download the train.json, test.json, train images and test images.(see [images_url.txt](https://github.com/gonggqing/zebrafish_detection/blob/fa6b5911c9373ff5d726fe5b4af44394f8cb81f5/images/images_url.txt)) The json file contains annotations of `COCO style`. After downloading the images and files, register the coco instances in your code, modify the name and path of the register.
+We have opened our image library and annotations, if you want to re-train this model locally, please download the train.json, test.json, train images and test images(see [images_url.txt](https://github.com/gonggqing/zebrafish_detection/blob/fa6b5911c9373ff5d726fe5b4af44394f8cb81f5/images/images_url.txt)). The json file contains annotations of `COCO style`. After downloading the images and files, register the coco instances in your code, modify the name and path of the register.
 ```python
 # train registry
 from detectron2.data.datasets import register_coco_instances
@@ -39,4 +40,4 @@ After the model inference, we can acquire a `csv file` which cotains the quantit
 ![results](https://user-images.githubusercontent.com/57084033/177250653-fbf07d17-8ba5-4be0-838c-360d66022691.png)
 
 ## Developer comments
-We will continually update this repository and add more images to our library, if you want to use this work, please cite our [research article].
+We will continually update this repository and add more images to our library, if you want to use this work, please cite our [research article]().
