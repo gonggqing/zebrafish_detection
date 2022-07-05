@@ -7,7 +7,7 @@ This AI project is a detection task for identifying `zebrafish organs` and `phen
 
 ## How to start
 To use our zebrafish AI detection, you have to learn how to install and utilize the detectron2, please refer the [detectron2 instructions](https://detectron2.readthedocs.io/en/latest/tutorials/getting_started.html). 
-Among all the libraries, [`fishutil`](https://github.com/gonggqing/zebrafish_detection/blob/b4dbee1b6be693c0968b62c1cd86daa5472d827d/fishutil.py) and [`fishclass`] (https://github.com/gonggqing/zebrafish_detection/blob/b4dbee1b6be693c0968b62c1cd86daa5472d827d/fishclass.py) are two customized python libraries for transforming the model outputs to quantitative parameters of zebrafish.
+Among all the libraries, [`fishutil`](https://github.com/gonggqing/zebrafish_detection/blob/b4dbee1b6be693c0968b62c1cd86daa5472d827d/fishutil.py) and [`fishclass`](https://github.com/gonggqing/zebrafish_detection/blob/b4dbee1b6be693c0968b62c1cd86daa5472d827d/fishclass.py) are two customized python libraries for transforming the model outputs to quantitative parameters of zebrafish.
 Firstly, install python3.8 or higher version, detectron2 (0.4.1) and other dependent libraries (see [zebrafish_maskrcnn.py](https://github.com/gonggqing/zebrafish_detection/blob/ddff5e1871fb63bbb34f46db6785534ed34c017a/zebrafish_maskrcnn.py)). 
 
 Then put the [pre-trained model weights](https://drive.google.com/file/d/1yyREJccnKeRDJ4BOnFMt3FNddC_w4fm_/view?usp=sharing) in your specified path.
