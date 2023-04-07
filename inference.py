@@ -17,6 +17,7 @@ import torch
 import json
 import texttable
 import glob
+import argparse
 
 # import common detectron2 libraries
 from detectron2 import model_zoo
@@ -31,6 +32,20 @@ from detectron2.data import transforms as T
 from fishutil import *
 from fishclass import Zebrafish
 
+##add some input
+parser = argparse.ArgumentParser()
+parser.add_argument("-i", "--input_dir", type=str, help="where you store the images")
+parser.add_argument("-o", "--output_dir", type=str, help="where you store the inference results")
+parser.add_argument("-fc", "--file_csv", type=str, help="the inference results, endwiths .csv")
+parser.add_argument("-fj", "--file_json", type=str, help="the inference results raw data, endwiths .json")
+parser.add_argument("-t", "--image_type", type=str, help="specify the type of input images, endwiths .png, .jpg, .tiff, etc.")
+
+args = parser.parse_args()
+input_path = args.input_dir
+output_path = args.output_dir
+file_csv = args.file_csv
+file_json = args.file_json
+image_type = args.image_type
 
 # train registry
 from detectron2.data.datasets import register_coco_instances
@@ -135,11 +150,15 @@ from detectron2.utils.visualizer import ColorMode
 dataset_test = DatasetCatalog.get('zebrafish_test')
 df = create_pd()
 
-path = '/home/gongching/Downloads/detectron2/zebrafish_archives/inference_results/recognize_results'
-os.makedirs(path, exist_ok=True)
+try:
+    os.makedirs(output_path, exist_ok=True)
+    print("%s created successfully."%output_path)
+except OSError as error:
+    print("directory %s can not be created."%output_path)
+
 # for d in random.sample(dataset_test, 10):
 n=0
-for d in sorted(glob.glob("/home/gongching/Downloads/detectron2/zebrafish_archives/inferences/recognize/*tif")):
+for d in sorted(glob.glob("%s/*%s" %(input_path,image_type))):
     im = cv2.imread(d)
     outputs = predictor(im)
     v = Visualizer(im[:, :, ::-1],
@@ -153,7 +172,7 @@ for d in sorted(glob.glob("/home/gongching/Downloads/detectron2/zebrafish_archiv
     # cv2.destroyWindow("predict")
 
 
-    cv2.imwrite(os.path.join(path, 'fish_%s.png' % str(n)), out.get_image()[:, :, ::-1])
+    cv2.imwrite(os.path.join(output_path, 'fish_%s.png' % str(n)), out.get_image()[:, :, ::-1])
     n += 1
     instances = outputs['instances'].to('cpu')
 
@@ -186,10 +205,10 @@ for d in sorted(glob.glob("/home/gongching/Downloads/detectron2/zebrafish_archiv
 
     # output to file
     json_infos = json.dumps(infos, indent=4)
-    with open('Endpoints_out/cd_O.json', 'a+') as f:
+    with open("%s/%s" %(output_path, file_json), 'a+') as f:
         f.write(json_infos+'\n')
 
-df.to_csv(os.path.join('/home/gongching/Downloads/detectron2/zebrafish_archives/Endpoints_out', 'cdcl222.csv'))
+df.to_csv(os.path.join(output_path, file_csv))
 
 plot(df)
 print('Visualization done!')
